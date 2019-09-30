@@ -7,7 +7,7 @@ import fonts from './fonts';
 import './App.scss';
 
 function App() {
-  const [selectedFontFamily, setSlectedFontFamily] = useState(fonts[0].family);
+  const [selectedFontFamily, setSlectedFontFamily] = useState(fonts[4].family);
 
   return (
     <div className="app">
