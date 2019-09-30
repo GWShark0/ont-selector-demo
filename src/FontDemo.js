@@ -22,12 +22,12 @@ const useStyles = makeStyles(theme => ({
 
 function FontDemo(props) {
   const classes = useStyles();
-  const { fontFamily } = props;
+  const { selectedFontFamily } = props;
   const [bold, setBold] = useState(false);
   const [italic, setItalic] = useState(false);
 
   const style = {
-    fontFamily,
+    fontFamily: selectedFontFamily,
     fontWeight: bold ? 700 : 400,
     fontStyle: italic ? 'italic' : 'normal',
   };

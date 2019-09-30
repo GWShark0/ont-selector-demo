@@ -7,17 +7,17 @@ import fonts from './fonts';
 import './App.scss';
 
 function App() {
-  const [selectedFont, setSelectedFont] = useState(fonts[0]);
+  const [selectedFontFamily, setSlectedFontFamily] = useState(fonts[0].family);
 
   return (
     <div className="app">
-      <FontLoader selectedFont={selectedFont} />
+      <FontLoader selectedFontFamily={selectedFontFamily} />
       <FontSelect
-        fonts={fonts}
-        selectedFont={selectedFont}
-        onChange={event => setSelectedFont(event.target.value)}
+        families={fonts.map(font => font.family)}
+        selectedFontFamily={selectedFontFamily}
+        onChange={event => setSlectedFontFamily(event.target.value)}
       />
-      <FontDemo fontFamily={selectedFont} />
+      <FontDemo selectedFontFamily={selectedFontFamily} />
     </div>
   );
 }

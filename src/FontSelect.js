@@ -18,16 +18,14 @@ const useStyles = makeStyles(theme => ({
 
 function FontSelect(props) {
   const classes = useStyles();
-  const { fonts, onChange, selectedFont } = props;
-  const style = {
-    fontFamily: selectedFont,
-  }
+  const { families, onChange, selectedFontFamily } = props;
+  const style = { fontFamily: selectedFontFamily };
 
   return (
     <form className={classes.root} autoComplete="off">
       <FormControl variant="outlined" className={classes.formControl}>
         <Select
-          value={selectedFont}
+          value={selectedFontFamily}
           style={style}
           inputProps={{
             name: 'font',
@@ -35,17 +33,17 @@ function FontSelect(props) {
           }}
           onChange={onChange}
         >
-          {fonts.map(font => {
+          {families.map(family => {
             const style = {
-              fontFamily: font,
+              fontFamily: family,
             }
             return (
               <MenuItem
                 style={style}
-                value={font}
-                key={font}
+                value={family}
+                key={family}
               >
-                {font}
+                {family}
               </MenuItem>
             );
           })}

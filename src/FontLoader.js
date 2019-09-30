@@ -1,33 +1,13 @@
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
-import { stringify } from 'query-string';
-import WebFont from 'webfontloader';
-import families from './fonts';
-
-const GOOGLE_FONTS_API = 'https://fonts.googleapis.com/css';
-
-function constructFontsUrl() {
-  const query = stringify({
-    display: 'swap',
-    family: families.join('|'),
-  });
-  return `${GOOGLE_FONTS_API}?${query}`;
-}
-
-function getSelectedFont(fontFamily) {
-  WebFont.load({
-    google: {
-      families: [`${fontFamily}:400,400i,700,700i`],
-    }
-  });
-}
+import { constructFontsUrl, getSelectedFont } from './util/fonts';
 
 function FontLoader(props) {
-  const { selectedFont } = props;
+  const { selectedFontFamily } = props;
 
   useEffect(() => {
-    getSelectedFont(selectedFont)
-  }, [selectedFont]);
+    getSelectedFont(selectedFontFamily)
+  }, [selectedFontFamily]);
 
   return (
     <Helmet>
